@@ -58,6 +58,11 @@ export async function getStaticProps() {
       },
     }
   );
+
+  if (!userRes.ok) {
+    return { notFound: true };
+  }
+
   const user = await userRes.json();
 
   const repoRes = await fetch(
@@ -68,10 +73,15 @@ export async function getStaticProps() {
       },
     }
   );
+
+  if (!repoRes.ok) {
+    return { notFound: true };
+  }
+
   let repos = await repoRes.json();
-  repos = repos
-    .sort((a, b) => b.stargazers_count - a.stargazers_count)
-    .slice(0, 6);
+  repos = Array.isArray(repos)
+    ? repos.sort((a, b) => b.stargazers_count - a.stargazers_count).slice(0, 6)
+    : [];
 
   return {
     props: { title: 'GitHub', repos, user },

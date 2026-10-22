@@ -1,7 +1,7 @@
-import Titlebar from '../components/Titlebar'
-import Sidebar from '../components/Sidebar'
-import Explorer from '../components/Explorer'
-import Bottombar from '../components/Bottombar'
+import Titlebar from './Titlebar'
+import Sidebar from './Sidebar'
+import Explorer from './Explorer'
+import Bottombar from './Bottombar'
 import Tabsbar from './Tabsbar'
 import styles from '../styles/Layout.module.css'
 import { useEffect } from 'react'
@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
   const router = useRouter()
   useEffect(() => {
     const main = document.getElementById('main-editor')
-    main.scrollTop = 0
+    if (main) main.scrollTop = 0
   }, [router.pathname])
   return (
     <>

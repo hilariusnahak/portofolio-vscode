@@ -7,9 +7,9 @@ const ArticlesPage = ({ articles }) => {
       <h3>
         Recent Posts from{' '}
         <a
-          href="https://dev.to/itsnitinr"
+          href="https://dev.to/hilariusnahak"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           className={styles.underline}
         >
           dev.to
@@ -34,10 +34,14 @@ export async function getStaticProps() {
     }
   );
 
+  if (!res.ok) {
+    return { props: { title: 'Articles', articles: [] }, revalidate: 60 };
+  }
+
   const data = await res.json();
 
   return {
-    props: { title: 'Articles', articles: data },
+    props: { title: 'Articles', articles: Array.isArray(data) ? data : [] },
     revalidate: 60,
   };
 }

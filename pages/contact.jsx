@@ -10,9 +10,9 @@ const ContactPage = () => {
 
   const submitForm = async (e) => {
     e.preventDefault();
-    console.log(process.env.NEXT_PUBLIC_API_URL);
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/contact`, {
       method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, subject, message }),
     });
     if (res.ok) {
@@ -60,7 +60,7 @@ const ContactPage = () => {
             </div>
           </div>
           <div>
-            <label htmlFor="name">Subject</label>
+            <label htmlFor="subject">Subject</label>
             <input
               type="text"
               name="subject"
