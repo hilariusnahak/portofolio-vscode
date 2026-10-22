@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  serverExternalPackages: ['@notionhq/client'],
   cacheComponents: true,
   partialPrefetching: true,
   images: {
