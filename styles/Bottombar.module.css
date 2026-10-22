@@ -34,8 +34,23 @@
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+button.section {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+}
+
 .section:hover {
   background: var(--bottombar-hover-bg);
+}
+
+.section.active {
+  background: var(--bottombar-hover-bg);
+}
+
+.section.active .icon {
+  color: var(--accent-color);
 }
 
 @media screen and (max-width: 600px) {
