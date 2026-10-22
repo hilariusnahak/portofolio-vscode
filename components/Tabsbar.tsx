@@ -15,7 +15,7 @@ import {
 import styles from '@/styles/Tabsbar.module.css';
 
 const Tabsbar = () => {
-  const pathname = usePathname();
+  const pathname = usePathname() ?? '';
   const { tabs, hydrated } = useEditorTabs();
   const { close } = useEditorActions();
 

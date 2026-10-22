@@ -23,7 +23,7 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const pathname = usePathname();
+  const pathname = usePathname() ?? '';
   const { tabs, hydrated } = useEditorTabs();
   const editor = useEditorActions();
   const previousPathRef = useRef<string | null>(null);

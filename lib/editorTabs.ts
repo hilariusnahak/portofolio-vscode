@@ -194,7 +194,7 @@ export const moveTab = (fromPath: string, toPath: string) => {
 // Tab operations that also navigate: opening a tab goes to its page, and
 // closing the active tab moves to its neighbour
 export const useEditorActions = () => {
-  const pathname = usePathname();
+  const pathname = usePathname() ?? '';
   const router = useRouter();
 
   const open = useCallback(

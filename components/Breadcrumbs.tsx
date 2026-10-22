@@ -9,7 +9,7 @@ import { getRoute } from '@/lib/editorTabs';
 import styles from '@/styles/Breadcrumbs.module.css';
 
 const Breadcrumbs = () => {
-  const pathname = usePathname();
+  const pathname = usePathname() ?? '';
   const route = getRoute(pathname);
 
   if (!route) return null;
